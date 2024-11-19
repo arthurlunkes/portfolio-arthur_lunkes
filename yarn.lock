@@ -2246,6 +2246,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/node-sass@^4.11.8":
+  version "4.11.8"
+  resolved "https://registry.yarnpkg.com/@types/node-sass/-/node-sass-4.11.8.tgz#c45b136a53eccd8c623123a956dc4bc183af096f"
+  integrity sha512-dWWMGPX8uselSQ1MLzDvQnVz5Qy1pe7SJuUl1Yqi2NCNRkrk5DmHlP44VZmTWm+buR2T217+5zEAPbAmTwKIOQ==
+  dependencies:
+    "@types/node" "*"
+
 "@types/node@*":
   version "22.9.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-22.9.0.tgz#b7f16e5c3384788542c72dc3d561a7ceae2c0365"
