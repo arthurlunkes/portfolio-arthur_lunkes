@@ -1,0 +1,25 @@
+// Variáveis do tema claro
+$light-bg: #ffffff;
+$light-text: #000000;
+
+// Variáveis do tema escuro
+$dark-bg: #252525;
+$dark-text: #ffffff;
+
+// Estilos para o tema claro
+body.light {
+  --bg-color: #{$light-bg};
+  --text-color: #{$light-text};
+}
+
+// Estilos para o tema escuro
+body.dark {
+  --bg-color: #{$dark-bg};
+  --text-color: #{$dark-text};
+}
+
+// Aplicação das variáveis de tema
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
