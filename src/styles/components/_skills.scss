@@ -1,0 +1,42 @@
+@use '../base/tokens' as *;
+@use '../base/mixins' as *;
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: $space-lg;
+
+  @include respond-to(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills__group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  transition: border-color $transition-base;
+
+  &:hover {
+    border-color: var(--accent);
+  }
+}
+
+.skills__group-title {
+  font-family: $font-mono;
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: $space-md;
+
+  &::before {
+    content: '// ';
+    color: var(--text-faint);
+  }
+}
+
+.skills__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}

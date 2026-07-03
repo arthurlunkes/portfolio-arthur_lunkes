@@ -1,0 +1,65 @@
+@use '../base/tokens' as *;
+@use '../base/mixins' as *;
+
+// --- Section ---
+.section {
+  padding-block: $space-3xl;
+
+  @include respond-to(tablet) {
+    padding-block: $space-2xl;
+  }
+}
+
+// --- Section title ---
+.section-title {
+  margin-bottom: $space-xl;
+
+  h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: baseline;
+    gap: $space-xs;
+  }
+
+  &__mark {
+    font-family: $font-mono;
+    color: var(--accent);
+  }
+
+  &__subtitle {
+    margin-top: $space-xs;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+}
+
+// --- Card ---
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  transition: transform $transition-base, border-color $transition-base,
+    box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 28px var(--shadow-color);
+  }
+}
+
+// --- Tag ---
+.tag {
+  display: inline-block;
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: $radius-full;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}

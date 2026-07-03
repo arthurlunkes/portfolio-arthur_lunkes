@@ -1,15 +1,28 @@
-import ThemeSwitcher from '../components/ThemeSwitch/ThemeSwitch';
+import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
+import Hero from '../components/sections/Hero';
+import About from '../components/sections/About';
+import Experience from '../components/sections/Experience';
+import Projects from '../components/sections/Projects';
+import Skills from '../components/sections/Skills';
+import Education from '../components/sections/Education';
+import Contact from '../components/sections/Contact';
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <p className='App-intro'>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <ThemeSwitcher />
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
 

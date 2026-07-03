@@ -1,0 +1,43 @@
+@use '../base/tokens' as *;
+@use '../base/mixins' as *;
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding-block: $space-xl;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-md;
+    flex-wrap: wrap;
+  }
+
+  &__links {
+    display: flex;
+    gap: $space-lg;
+
+    a {
+      color: var(--text-muted);
+      font-family: $font-mono;
+      font-size: 0.9rem;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__meta {
+    color: var(--text-faint);
+    font-size: 0.85rem;
+  }
+
+  @include respond-to(mobile) {
+    &__inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}

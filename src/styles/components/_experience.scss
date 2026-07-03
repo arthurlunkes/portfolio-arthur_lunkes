@@ -1,0 +1,110 @@
+@use '../base/tokens' as *;
+@use '../base/mixins' as *;
+
+.timeline {
+  position: relative;
+  padding-left: $space-xl;
+
+  // linha vertical
+  &::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  &__item {
+    position: relative;
+    padding-bottom: $space-xl;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    left: calc(-#{$space-xl} + 1px);
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--accent);
+  }
+
+  &__card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: $radius-lg;
+    padding: $space-lg;
+    transition: border-color $transition-base;
+
+    &:hover {
+      border-color: var(--accent);
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    flex-wrap: wrap;
+  }
+
+  &__role {
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  &__badge {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: $radius-full;
+    background: var(--accent-2);
+    color: var(--accent-contrast);
+    font-weight: 600;
+  }
+
+  &__company {
+    margin-top: 0.2rem;
+    color: var(--text);
+    font-weight: 500;
+
+    span {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+  }
+
+  &__period {
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-top: 0.15rem;
+  }
+
+  &__bullets {
+    margin-top: $space-md;
+    display: grid;
+    gap: $space-xs;
+
+    li {
+      position: relative;
+      padding-left: $space-md;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+
+      &::before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+    }
+  }
+}

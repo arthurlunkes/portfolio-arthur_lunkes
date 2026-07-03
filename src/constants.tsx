@@ -5,4 +5,13 @@ export const THEMES = {
   DARK: 'dark',
 };
 
-export const DEFAULT_THEME = THEMES.LIGHT;
+export const DEFAULT_THEME = THEMES.DARK;
+
+export const LANG_STORAGE_KEY = 'lang';
+
+export const LANGS = {
+  PT: 'pt',
+  EN: 'en',
+};
+
+export const DEFAULT_LANG = LANGS.PT;

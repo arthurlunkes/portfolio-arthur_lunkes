@@ -1,25 +1,42 @@
-// Variáveis do tema claro
-$light-bg: #ffffff;
-$light-text: #000000;
+// ============================================================
+// Temas — CSS custom properties trocadas por body.dark / body.light
+// Dark é o tema padrão (estilo dev/techie com acento neon).
+// ============================================================
 
-// Variáveis do tema escuro
-$dark-bg: #252525;
-$dark-text: #ffffff;
-
-// Estilos para o tema claro
-body.light {
-  --bg-color: #{$light-bg};
-  --text-color: #{$light-text};
-}
-
-// Estilos para o tema escuro
+// Fallback: se nenhuma classe estiver no body ainda, usa dark.
+:root,
 body.dark {
-  --bg-color: #{$dark-bg};
-  --text-color: #{$dark-text};
+  --bg: #0d1117;
+  --bg-elevated: #161b22;
+  --surface: #1c2230;
+  --surface-hover: #232b3a;
+  --border: #2a3140;
+  --text: #e6edf3;
+  --text-muted: #9aa7b8;
+  --text-faint: #6b7686;
+  --accent: #22d3ee; // ciano neon
+  --accent-2: #34d399; // verde neon
+  --accent-contrast: #04121a;
+  --accent-glow: rgba(34, 211, 238, 0.25);
+  --tag-bg: rgba(34, 211, 238, 0.1);
+  --tag-text: #7ee7fb;
+  --shadow-color: rgba(0, 0, 0, 0.4);
 }
 
-// Aplicação das variáveis de tema
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+body.light {
+  --bg: #f6f8fc;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #eef2f8;
+  --border: #dfe5ee;
+  --text: #10151d;
+  --text-muted: #4c5b70;
+  --text-faint: #7a8798;
+  --accent: #0a8fa8;
+  --accent-2: #0f9d68;
+  --accent-contrast: #ffffff;
+  --accent-glow: rgba(10, 143, 168, 0.18);
+  --tag-bg: rgba(10, 143, 168, 0.1);
+  --tag-text: #0a7c93;
+  --shadow-color: rgba(15, 25, 45, 0.12);
 }

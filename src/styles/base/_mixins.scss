@@ -1,0 +1,34 @@
+@use 'tokens' as *;
+
+// Media query helper: @include respond-to(tablet) { ... }
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $bp-mobile) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $bp-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (max-width: $bp-desktop) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Container centralizado com padding lateral responsivo
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $space-lg;
+
+  @include respond-to(tablet) {
+    padding-inline: $space-md;
+  }
+}

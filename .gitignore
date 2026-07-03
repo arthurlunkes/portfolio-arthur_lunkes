@@ -5,6 +5,15 @@
 /.pnp
 .pnp.js
 
+# Yarn 4 (Berry) — keep releases/plugins, ignore the rest
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
 # testing
 /coverage
 
@@ -17,6 +26,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 npm-debug.log*
 yarn-debug.log*

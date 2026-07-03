@@ -1,0 +1,51 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy via SSH
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ vars.SSH_HOST }}
+          username: ${{ vars.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ vars.SSH_PORT }}
+          script: |
+            set -e
+            cd /root/portfolio-arthur_lunkes
+
+            echo "==> Pulling latest code"
+            git pull --ff-only origin main
+
+            echo "==> Installing dependencies"
+            npm install --no-audit --no-fund
+
+            echo "==> Building static site"
+            CI=false npm run build
+
+            echo "==> Installing nginx site config, if not already present"
+            if [ ! -f /etc/nginx/sites-available/dev.arthurlunkes.com.br.conf ]; then
+              echo "Nginx config not found, installing..."
+              sudo install -m 0644 /root/portfolio-arthur_lunkes/deploy/nginx/dev.arthurlunkes.com.br.conf /etc/nginx/sites-available/dev.arthurlunkes.com.br.conf
+              sudo ln -sfn /etc/nginx/sites-available/dev.arthurlunkes.com.br.conf /etc/nginx/sites-enabled/dev.arthurlunkes.com.br.conf
+              sudo rm -f /etc/nginx/sites-enabled/default
+
+              echo "==> Reloading nginx"
+              sudo nginx -t && sudo systemctl reload nginx
+            else
+              echo "Nginx config already exists; reloading to serve the fresh build"
+              sudo nginx -t && sudo systemctl reload nginx
+            fi
+
+            echo "==> Deploy concluido"
