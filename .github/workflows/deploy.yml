@@ -17,10 +17,10 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: ${{ vars.SSH_HOST }}
-          username: ${{ vars.SSH_USER }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ vars.SSH_PORT }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
             set -e
             cd /root/portfolio-arthur_lunkes
