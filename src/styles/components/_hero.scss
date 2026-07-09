@@ -50,6 +50,23 @@
     line-height: 1.05;
   }
 
+  &__typewriter {
+    margin-top: $space-sm;
+    font-family: $font-mono;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    font-weight: 600;
+    color: var(--accent);
+    min-height: 1.6em; // evita "pulo" de layout enquanto digita/apaga
+  }
+
+  &__typewriter-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    color: var(--accent-2);
+    font-weight: 400;
+    animation: hero-caret-blink 1s step-end infinite;
+  }
+
   &__title {
     margin-top: $space-sm;
     font-family: $font-mono;
@@ -130,6 +147,22 @@
       color: var(--accent);
       opacity: 0.5;
     }
+  }
+}
+
+@keyframes hero-caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__typewriter-cursor {
+    animation: none;
   }
 }
 

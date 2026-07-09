@@ -18,12 +18,13 @@ export const profile: Profile = {
     pt: 'Pato Branco, Paraná — Brasil',
     en: 'Pato Branco, Paraná — Brazil',
   },
-  photo: '', // deixe vazio para exibir o placeholder; ex.: '/avatar.jpg'
+  photo: '/avatar.jpg', // deixe vazio para exibir o placeholder; ex.: '/avatar.jpg'
   links: {
     github: 'https://github.com/arthurlunkes',
     linkedin: 'https://www.linkedin.com/in/arthurlunkes',
     email: 'arthur.lunkes2017@gmail.com',
+    instagram: 'https://www.instagram.com/arthur_lunkes',
     whatsapp: '5546991100092',
-    cv: '', // ex.: '/curriculo-arthur-lunkes.pdf' (coloque o PDF em public/)
+    cv: '/curriculo-arthur-lunkes.pdf', // ex.: '/curriculo-arthur-lunkes.pdf' (coloque o PDF em public/)
   },
 };

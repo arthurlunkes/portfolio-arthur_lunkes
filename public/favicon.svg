@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Arthur Lunkes">
+  <defs>
+    <linearGradient id="al-stroke" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22d3ee" />
+      <stop offset="1" stop-color="#34d399" />
+    </linearGradient>
+    <linearGradient id="al-bg" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#161b22" />
+      <stop offset="1" stop-color="#0d1117" />
+    </linearGradient>
+  </defs>
+
+  <!-- fundo -->
+  <rect x="3" y="3" width="58" height="58" rx="15" fill="url(#al-bg)" stroke="url(#al-stroke)" stroke-width="3" />
+
+  <!-- glyph de terminal: chevron ">" + cursor "_" -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6">
+    <polyline points="21,22 33,32 21,42" stroke="#22d3ee" />
+    <line x1="37" y1="42" x2="47" y2="42" stroke="#34d399" />
+  </g>
+</svg>

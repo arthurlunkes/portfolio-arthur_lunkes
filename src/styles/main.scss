@@ -74,17 +74,40 @@ ul {
   @include container;
 }
 
-// --- Animação de entrada das seções ---
+// --- Animação de entrada das seções (disparada ao scroll) ---
+// O estado inicial fica escondido; a classe `.reveal--visible` (adicionada
+// pelo IntersectionObserver via useScrollReveal) dispara a transição.
+$reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+$stagger-targets: '.project-card, .edu__card, .timeline__card, .about__stat, .skills__group';
+
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  animation: reveal-up 0.7s ease forwards;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s $reveal-ease;
+  will-change: opacity, transform;
 }
 
-@keyframes reveal-up {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
+// Stagger sutil dos cards conforme a seção entra na tela.
+.reveal #{$stagger-targets} {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s $reveal-ease;
+}
+
+.reveal--visible #{$stagger-targets} {
+  opacity: 1;
+  transform: none;
+}
+
+@for $i from 1 through 9 {
+  .reveal--visible
+    :is(.project-card, .edu__card, .timeline__card, .about__stat, .skills__group):nth-child(#{$i}) {
+    transition-delay: #{0.07s * $i};
   }
 }
 
@@ -93,10 +116,11 @@ ul {
     scroll-behavior: auto;
   }
 
-  .reveal {
+  .reveal,
+  .reveal #{$stagger-targets} {
     opacity: 1;
     transform: none;
-    animation: none;
+    transition: none;
   }
 
   * {

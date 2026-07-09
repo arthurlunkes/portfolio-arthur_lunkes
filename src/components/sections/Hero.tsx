@@ -1,11 +1,28 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useTypewriter } from '../../hooks/useTypewriter';
 import { profile } from '../../data/profile';
 import { ui } from '../../data/ui';
+
+const typewriterPhrases = [
+  'Full Stack Developer',
+  'Node.js',
+  'Vue.js',
+  'React',
+  'TypeScript',
+  'GraphQL',
+  'PostgreSQL',
+  'Docker',
+  'NGINX',
+  'Python',
+  'Go',
+  'Flutter',
+];
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
   const { name, title, location, photo, links } = profile;
+  const typed = useTypewriter(typewriterPhrases);
 
   return (
     <header id='top' className='hero'>
@@ -15,6 +32,10 @@ const Hero: React.FC = () => {
             <span className='hero__prompt'>$</span> {t(ui.heroGreeting)}
           </p>
           <h1 className='hero__name'>{name}</h1>
+          <p className='hero__typewriter' aria-hidden='true'>
+            <span className='hero__typewriter-text'>{typed}</span>
+            <span className='hero__typewriter-cursor'>|</span>
+          </p>
           <p className='hero__title'>{t(title)}</p>
           <p className='hero__location'>📍 {t(location)}</p>
 

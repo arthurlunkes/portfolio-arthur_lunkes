@@ -17,6 +17,7 @@ export interface ProfileLinks {
   email: string;
   /** Número no formato internacional só com dígitos, ex.: 5546991100092 */
   whatsapp: string;
+  instagram: string;
   /** Caminho para o PDF do currículo (opcional). */
   cv?: string;
 }
