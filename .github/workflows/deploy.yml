@@ -28,11 +28,14 @@ jobs:
             echo "==> Pulling latest code"
             git pull --ff-only origin main
 
+            echo "==> Enabling Yarn (via corepack, pinned by packageManager)"
+            corepack enable
+
             echo "==> Installing dependencies"
-            npm install --no-audit --no-fund
+            yarn install --immutable
 
             echo "==> Building static site"
-            CI=false npm run build
+            CI=false yarn build
 
             echo "==> Installing nginx site config, if not already present"
             if [ ! -f /etc/nginx/sites-available/dev.arthurlunkes.com.br.conf ]; then
