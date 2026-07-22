@@ -16,7 +16,10 @@ interface ScrollRevealOptions {
  * Respeita `prefers-reduced-motion`: nesse caso já inicia visível.
  */
 export function useScrollReveal<T extends HTMLElement = HTMLDivElement>({
-  threshold = 0.15,
+  // Threshold 0: seções mais altas que a viewport (celular, com os cards em
+  // uma coluna só) nunca chegariam a exibir uma fração do próprio tamanho e
+  // ficariam presas em opacity: 0.
+  threshold = 0,
   rootMargin = '0px 0px -10% 0px',
   once = true,
 }: ScrollRevealOptions = {}) {

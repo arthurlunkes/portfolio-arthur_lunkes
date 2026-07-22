@@ -3,7 +3,8 @@
 
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  // `min()` evita que o minmax estoure a largura em telas estreitas.
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: $space-lg;
 
   @include respond-to(mobile) {
