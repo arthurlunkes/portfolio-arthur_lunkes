@@ -67,6 +67,9 @@
 
   &__lang,
   &__theme {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: $radius-full;
@@ -75,53 +78,41 @@
     font-size: 0.85rem;
     font-family: $font-mono;
     line-height: 1;
-    transition: border-color $transition-fast, background $transition-fast;
+    transition: border-color $transition-fast, background $transition-fast, color $transition-fast;
 
     &:hover {
       border-color: var(--accent);
+      color: var(--accent);
     }
   }
 
   &__theme {
-    padding: 0.35rem 0.5rem;
-    font-size: 1rem;
+    padding: 0.4rem;
   }
 
   &__burger {
     display: none;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 5px;
     width: 40px;
     height: 40px;
     background: transparent;
     border: 1px solid var(--border);
     border-radius: $radius-sm;
-    padding: 0 9px;
+    color: var(--text);
+    transition: border-color $transition-fast, color $transition-fast;
 
-    span {
-      display: block;
-      height: 2px;
-      width: 100%;
-      background: var(--text);
-      transition: transform $transition-base, opacity $transition-base;
-    }
-
-    &.is-open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-    &.is-open span:nth-child(2) {
-      opacity: 0;
-    }
-    &.is-open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+    &:hover,
+    &.is-open {
+      border-color: var(--accent);
+      color: var(--accent);
     }
   }
 
   // --- Mobile ---
   @include respond-to(tablet) {
     &__burger {
-      display: flex;
+      display: inline-flex;
     }
 
     &__links {

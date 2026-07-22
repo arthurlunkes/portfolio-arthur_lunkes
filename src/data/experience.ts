@@ -7,10 +7,30 @@ import { Job } from '../interfaces/content';
 export const experience: Job[] = [
   {
     company: 'SINNCTECH',
-    role: { pt: 'Desenvolvedor Fullstack Pleno I', en: 'Fullstack Developer (Mid I)' },
-    period: { pt: 'set 2025 — atual', en: 'Sep 2025 — Present' },
+    role: { pt: 'Desenvolvedor Fullstack Pleno II', en: 'Fullstack Developer (Mid II)' },
+    period: { pt: 'jun 2026 — atual', en: 'Jun 2026 — Present' },
     location: 'Pato Branco, PR',
     current: true,
+    bullets: [
+      {
+        pt: 'Evolução de features críticas em Node.js, GraphQL, Vue.js e PostgreSQL',
+        en: 'Evolution of critical features in Node.js, GraphQL, Vue.js and PostgreSQL',
+      },
+      {
+        pt: 'Participação em decisões de arquitetura e revisão de código do time',
+        en: 'Involvement in architecture decisions and team code reviews',
+      },
+      {
+        pt: 'Automação de deploys, observabilidade e tuning de performance em produção',
+        en: 'Deploy automation, observability and production performance tuning',
+      },
+    ],
+  },
+  {
+    company: 'SINNCTECH',
+    role: { pt: 'Desenvolvedor Fullstack Pleno I', en: 'Fullstack Developer (Mid I)' },
+    period: { pt: 'set 2025 — mai 2026', en: 'Sep 2025 — May 2026' },
+    location: 'Pato Branco, PR',
     bullets: [
       {
         pt: 'Desenvolvimento fullstack com Node.js, GraphQL, Vue.js e PostgreSQL',

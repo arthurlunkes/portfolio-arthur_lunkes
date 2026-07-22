@@ -1,4 +1,6 @@
 import React from 'react';
+import { ArrowRight, Download, MapPin, Send } from 'lucide-react';
+import SocialLinks from '../ui/SocialLinks';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTypewriter } from '../../hooks/useTypewriter';
 import { profile } from '../../data/profile';
@@ -37,33 +39,25 @@ const Hero: React.FC = () => {
             <span className='hero__typewriter-cursor'>|</span>
           </p>
           <p className='hero__title'>{t(title)}</p>
-          <p className='hero__location'>📍 {t(location)}</p>
+          <p className='hero__location'>
+            <MapPin size={16} aria-hidden='true' /> {t(location)}
+          </p>
 
           <div className='hero__actions'>
             <a className='btn btn--primary' href='#projects'>
-              {t(ui.heroCtaProjects)}
+              {t(ui.heroCtaProjects)} <ArrowRight size={16} aria-hidden='true' />
             </a>
             <a className='btn btn--ghost' href='#contact'>
-              {t(ui.heroCtaContact)}
+              {t(ui.heroCtaContact)} <Send size={16} aria-hidden='true' />
             </a>
             {links.cv && (
               <a className='btn btn--ghost' href={links.cv} target='_blank' rel='noreferrer'>
-                {t(ui.heroDownloadCv)}
+                {t(ui.heroDownloadCv)} <Download size={16} aria-hidden='true' />
               </a>
             )}
           </div>
 
-          <div className='hero__socials'>
-            <a href={links.github} target='_blank' rel='noreferrer' aria-label='GitHub'>
-              GitHub
-            </a>
-            <a href={links.linkedin} target='_blank' rel='noreferrer' aria-label='LinkedIn'>
-              LinkedIn
-            </a>
-            <a href={`mailto:${links.email}`} aria-label='Email'>
-              Email
-            </a>
-          </div>
+          <SocialLinks variant='hero' />
         </div>
 
         <div className='hero__photo'>

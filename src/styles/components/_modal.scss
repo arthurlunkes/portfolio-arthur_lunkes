@@ -1,0 +1,245 @@
+@use '../base/tokens' as *;
+@use '../base/mixins' as *;
+
+// Modal de detalhes do projeto (galeria + stack + descrição).
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: $z-navbar + 10;
+  display: grid;
+  place-items: center;
+  padding: $space-lg;
+  background: rgba(3, 7, 14, 0.72);
+  backdrop-filter: blur(6px);
+  animation: modal-fade 0.2s ease;
+
+  &__panel {
+    position: relative;
+    width: min(880px, 100%);
+    max-height: min(90vh, 900px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    @include custom-scrollbar;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: $radius-lg;
+    box-shadow: 0 24px 60px var(--shadow-color);
+    animation: modal-rise 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &__close {
+    position: absolute;
+    top: $space-md;
+    right: $space-md;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-full;
+    background: color-mix(in srgb, var(--bg) 70%, transparent);
+    border: 1px solid var(--border);
+    color: var(--text);
+    backdrop-filter: blur(6px);
+    transition: border-color $transition-fast, color $transition-fast;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  }
+
+  &__gallery {
+    position: relative;
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  // Mesma técnica dos cards: fundo desfocado + imagem inteira por cima.
+  &__gallery-bg {
+    position: absolute;
+    inset: -8%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(30px) saturate(1.15) brightness(0.7);
+    transform: scale(1.08);
+  }
+
+  &__gallery-img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: min(56vh, 460px);
+    object-fit: contain;
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+    background: color-mix(in srgb, var(--bg) 70%, transparent);
+    border: 1px solid var(--border);
+    color: var(--text);
+    backdrop-filter: blur(6px);
+    transition: border-color $transition-fast, color $transition-fast;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    &--prev {
+      left: $space-md;
+    }
+
+    &--next {
+      right: $space-md;
+    }
+  }
+
+  &__thumbs {
+    display: flex;
+    gap: $space-xs;
+    padding: $space-sm $space-lg 0;
+    overflow-x: auto;
+    @include custom-scrollbar(6px);
+  }
+
+  &__thumb {
+    flex: 0 0 auto;
+    width: 84px;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: $radius-sm;
+    overflow: hidden;
+    opacity: 0.6;
+    transition: opacity $transition-fast, border-color $transition-fast;
+
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: var(--bg-elevated);
+    }
+
+    &.is-active,
+    &:hover {
+      opacity: 1;
+      border-color: var(--accent);
+    }
+  }
+
+  &__body {
+    padding: $space-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__title {
+    font-family: $font-mono;
+    font-size: 1.35rem;
+    font-weight: 700;
+    word-break: break-word;
+  }
+
+  &__year {
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+
+  &__desc {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+  }
+
+  &__subtitle {
+    margin-top: $space-sm;
+    font-family: $font-mono;
+    font-size: 0.9rem;
+    color: var(--text);
+
+    &::before {
+      content: '# ';
+      color: var(--accent);
+    }
+  }
+
+  &__highlights {
+    display: grid;
+    gap: $space-xs;
+
+    li {
+      position: relative;
+      padding-left: $space-md;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+
+      &::before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-md;
+    margin-top: $space-md;
+  }
+
+  @include respond-to(mobile) {
+    padding: 0;
+
+    &__panel {
+      max-height: 100vh;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+}
+
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal,
+  .modal__panel {
+    animation: none;
+  }
+}

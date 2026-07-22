@@ -25,6 +25,17 @@ export const profile: Profile = {
     email: 'arthur.lunkes2017@gmail.com',
     instagram: 'https://www.instagram.com/arthur_lunkes',
     whatsapp: '5546991100092',
+    whatsappDisplay: '+55 46 99110-0092',
+    trailhead: 'https://www.salesforce.com/trailblazer/arthurlunkes',
     cv: '/curriculo-arthur-lunkes.pdf', // ex.: '/curriculo-arthur-lunkes.pdf' (coloque o PDF em public/)
+  },
+  // Números do perfil Trailhead — atualize quando conquistar novos emblemas.
+  trailhead: {
+    url: 'https://www.salesforce.com/trailblazer/arthurlunkes',
+    rank: 'Ranger',
+    badges: 149,
+    points: 87150,
+    trails: 16,
+    superbadges: 2,
   },
 };

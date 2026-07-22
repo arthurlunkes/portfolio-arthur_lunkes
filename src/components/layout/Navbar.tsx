@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Languages, Menu, Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { THEMES } from '../../constants';
@@ -49,6 +50,7 @@ const Navbar: React.FC = () => {
             onClick={toggleLang}
             aria-label='Change language'
           >
+            <Languages size={16} aria-hidden='true' />
             {lang === 'pt' ? 'PT' : 'EN'}
           </button>
 
@@ -58,7 +60,11 @@ const Navbar: React.FC = () => {
             onClick={toggleTheme}
             aria-label={t(ui.toggleThemeAria)}
           >
-            {theme === THEMES.DARK ? '☀️' : '🌙'}
+            {theme === THEMES.DARK ? (
+              <Sun size={18} aria-hidden='true' />
+            ) : (
+              <Moon size={18} aria-hidden='true' />
+            )}
           </button>
 
           <button
@@ -68,9 +74,7 @@ const Navbar: React.FC = () => {
             aria-label={t(ui.toggleMenuAria)}
             aria-expanded={open}
           >
-            <span />
-            <span />
-            <span />
+            {open ? <X size={22} aria-hidden='true' /> : <Menu size={22} aria-hidden='true' />}
           </button>
         </div>
       </div>

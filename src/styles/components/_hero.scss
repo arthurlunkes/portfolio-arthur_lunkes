@@ -75,9 +75,16 @@
   }
 
   &__location {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
     margin-top: $space-xs;
     color: var(--text-muted);
     font-size: 0.95rem;
+
+    svg {
+      color: var(--accent);
+    }
   }
 
   &__summary {
@@ -92,25 +99,6 @@
     flex-wrap: wrap;
     gap: $space-md;
     margin-top: $space-xl;
-  }
-
-  &__socials {
-    display: flex;
-    gap: $space-lg;
-    margin-top: $space-lg;
-
-    a {
-      font-family: $font-mono;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      border-bottom: 1px dashed transparent;
-      transition: color $transition-fast, border-color $transition-fast;
-
-      &:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
-    }
   }
 
   // --- Foto / placeholder ---

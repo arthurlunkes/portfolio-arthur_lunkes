@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Mail } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import Section from '../ui/Section';
 import SectionTitle from '../ui/SectionTitle';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -92,10 +95,10 @@ const Contact: React.FC = () => {
 
         <div className='contact__actions'>
           <button type='submit' className='btn btn--primary'>
-            💬 {t(ui.formSendWhatsapp)}
+            <FontAwesomeIcon icon={faWhatsapp} aria-hidden='true' /> {t(ui.formSendWhatsapp)}
           </button>
           <button type='button' className='btn btn--ghost' onClick={sendEmail}>
-            ✉️ {t(ui.formSendEmail)}
+            <Mail size={16} aria-hidden='true' /> {t(ui.formSendEmail)}
           </button>
         </div>
       </form>

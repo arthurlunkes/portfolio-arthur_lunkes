@@ -21,6 +21,41 @@
   }
 }
 
+// Barra de rolagem discreta, no acento do tema.
+// Firefox usa `scrollbar-*`; Chromium/Safari usam os pseudo-elementos.
+@mixin custom-scrollbar($size: 8px) {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 55%, transparent) transparent;
+
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $radius-full;
+    background: color-mix(in srgb, var(--accent) 45%, transparent);
+    // A borda transparente afina o polegar sem encostar nas bordas.
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: background $transition-fast;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--accent) 70%, transparent);
+    background-clip: content-box;
+  }
+
+  &::-webkit-scrollbar-thumb:active {
+    background: var(--accent);
+    background-clip: content-box;
+  }
+}
+
 // Container centralizado com padding lateral responsivo
 @mixin container {
   width: 100%;

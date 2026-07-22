@@ -1,0 +1,63 @@
+@use '../base/tokens' as *;
+@use '../base/mixins' as *;
+
+// Links sociais (Hero e Footer) — ícones Lucide + marcas do Font Awesome.
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-md $space-lg;
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: $font-mono;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-bottom: 1px dashed transparent;
+    transition: color $transition-fast, border-color $transition-fast;
+
+    svg {
+      font-size: 1.05rem;
+      width: 1.05em;
+      height: 1.05em;
+      color: var(--accent);
+      transition: transform $transition-fast;
+    }
+
+    &:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+
+      svg {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  &--hero {
+    margin-top: $space-lg;
+  }
+
+  &--footer {
+    gap: $space-sm $space-md;
+
+    .social-links__item {
+      font-size: 0.85rem;
+    }
+  }
+
+  // Em telas pequenas os rótulos somem, sobram só os ícones — menos poluição.
+  @include respond-to(mobile) {
+    gap: $space-md;
+
+    &__item span {
+      display: none;
+    }
+
+    &__item--whatsapp span {
+      display: inline; // o número continua visível
+    }
+  }
+}

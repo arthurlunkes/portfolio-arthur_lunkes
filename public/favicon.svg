@@ -13,9 +13,17 @@
   <!-- fundo -->
   <rect x="3" y="3" width="58" height="58" rx="15" fill="url(#al-bg)" stroke="url(#al-stroke)" stroke-width="3" />
 
-  <!-- glyph de terminal: chevron ">" + cursor "_" -->
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6">
-    <polyline points="21,22 33,32 21,42" stroke="#22d3ee" />
-    <line x1="37" y1="42" x2="47" y2="42" stroke="#34d399" />
+  <!-- mesmo monograma do header: <AL/> -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5">
+    <polyline points="17,24 11,32 17,40" stroke="#22d3ee" />
+    <polyline points="47,24 53,32 47,40" stroke="#34d399" />
+  </g>
+
+  <g fill="none" stroke="#e6edf3" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- A -->
+    <polyline points="18,43 24,21 30,43" />
+    <line x1="20.6" y1="35.5" x2="27.4" y2="35.5" stroke-width="3.4" />
+    <!-- L -->
+    <polyline points="36,21 36,43 44,43" />
   </g>
 </svg>

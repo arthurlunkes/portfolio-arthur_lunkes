@@ -23,7 +23,8 @@
 }
 
 .edu__icon {
-  font-size: 1.6rem;
+  display: inline-flex;
+  color: var(--accent);
   line-height: 1;
 }
 
@@ -38,6 +39,9 @@
 }
 
 .edu__period {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   font-family: $font-mono;
   font-size: 0.85rem;
   color: var(--accent);
@@ -93,17 +97,138 @@
   }
 
   &-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
     padding: $space-md $space-lg;
+    flex: 1;
 
     h4 {
       font-size: 1rem;
       font-weight: 700;
     }
+  }
 
-    p {
+  &-issuer {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+  }
+
+  &-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.35rem;
+  }
+
+  &-mode,
+  &-place {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: $font-mono;
+    font-size: 0.74rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: $radius-full;
+    white-space: nowrap;
+  }
+
+  &-mode {
+    border: 1px solid transparent;
+
+    &--in-person {
+      background: color-mix(in srgb, var(--accent-2) 16%, transparent);
+      color: var(--accent-2);
+      border-color: color-mix(in srgb, var(--accent-2) 35%, transparent);
+    }
+
+    &--remote {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+    }
+  }
+
+  &-place {
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+}
+
+// --- Card do perfil Trailhead (Salesforce) ---
+.trailhead {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  transition: border-color $transition-base, transform $transition-base,
+    box-shadow $transition-base;
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px var(--shadow-color);
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__logo {
+    font-size: 2rem;
+    color: #00a1e0; // azul institucional do Salesforce
+  }
+
+  &__rank {
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  &__handle {
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    word-break: break-all;
+  }
+
+  &__external {
+    margin-left: auto;
+    color: var(--text-faint);
+    flex: 0 0 auto;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-md;
+    margin-top: $space-lg;
+    padding-top: $space-md;
+    border-top: 1px solid var(--border);
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    strong {
+      font-family: $font-mono;
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+
+    span {
+      font-size: 0.8rem;
       color: var(--text-muted);
-      font-size: 0.88rem;
-      margin-top: 0.2rem;
+    }
+
+    @include respond-to(mobile) {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }

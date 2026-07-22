@@ -1,6 +1,18 @@
 @use '../base/tokens' as *;
 @use '../base/mixins' as *;
 
+// --- Ícones (Lucide + marcas do Font Awesome) ---
+// Regra única para que todos fiquem alinhados ao texto e não encolham em flex.
+svg {
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.svg-inline--fa {
+  width: 1.05em;
+  height: 1.05em;
+}
+
 // --- Section ---
 .section {
   padding-block: $space-3xl;

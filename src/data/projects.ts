@@ -2,8 +2,13 @@ import { Project } from '../interfaces/content';
 
 /**
  * Projetos. Os marcados com `featured: true` aparecem primeiro.
- * Para adicionar um projeto, insira um novo objeto no array. Para exibir uma
- * imagem, coloque o arquivo em `public/projects/` e defina `image: '/projects/nome.png'`.
+ *
+ * IMAGENS: coloque os arquivos em `public/projects/`. A `image` é a capa do card;
+ * as extras vão em `images: ['/projects/clipsi-2.png', ...]` e aparecem na galeria
+ * do modal (clique em "Ver detalhes"). A capa entra na galeria automaticamente.
+ *
+ * MODAL: `longDescription` e `highlights` só aparecem no modal de detalhes —
+ * o card da grade continua mostrando apenas `description` e as tags.
  */
 export const projects: Project[] = [
   {
@@ -15,16 +20,38 @@ export const projects: Project[] = [
     tags: ['Flutter', 'Dart'],
     repoUrl: 'https://github.com/arthurlunkes/my_finances',
     featured: true,
+    image: '/projects/my_finances.png',
   },
   {
     name: 'portfolio-decision-system',
+    title: 'Decision Portfolio',
     description: {
       pt: 'Projeto de TCC: sistema de apoio à decisão com GraphQL, NestJS e Vue.',
       en: 'Capstone (TCC) project: decision support system with GraphQL, NestJS and Vue.',
     },
-    tags: ['Vue', 'GraphQL', 'NestJS', 'TypeScript'],
+    longDescription: {
+      pt: 'Sistema de apoio à decisão desenvolvido como Trabalho de Conclusão de Curso. Ajuda a priorizar e comparar alternativas de portfólio de projetos a partir de critérios configuráveis, com API GraphQL em NestJS e interface em Vue.',
+      en: 'Decision support system built as my capstone project. It helps prioritize and compare project portfolio alternatives using configurable criteria, with a NestJS GraphQL API and a Vue interface.',
+    },
+    highlights: [
+      {
+        pt: 'API GraphQL em NestJS com TypeScript e PostgreSQL',
+        en: 'NestJS GraphQL API with TypeScript and PostgreSQL',
+      },
+      {
+        pt: 'Interface em Vue para cadastro de critérios e comparação de alternativas',
+        en: 'Vue interface for criteria setup and alternative comparison',
+      },
+      {
+        pt: 'Deploy próprio em VPS com NGINX e subdomínio dedicado',
+        en: 'Self-hosted deployment on a VPS with NGINX and a dedicated subdomain',
+      },
+    ],
+    tags: ['Vue', 'GraphQL', 'NestJS', 'TypeScript', 'PostgreSQL'],
     repoUrl: 'https://github.com/arthurlunkes/portfolio-decision-system',
+    liveUrl: 'https://tcc.arthurlunkes.com.br/login',
     featured: true,
+    image: '/projects/decisionportfolio.png',
   },
   {
     name: 'dark-patterned-eye',
@@ -38,13 +65,27 @@ export const projects: Project[] = [
   },
   {
     name: 'clipsi',
+    title: 'Clipsi',
     description: {
       pt: 'Aplicação web desenvolvida com Vue.',
       en: 'Web application built with Vue.',
     },
-    tags: ['Vue', 'JavaScript'],
+    longDescription: {
+      pt: 'Aplicação web em Vue com dashboard próprio, hospedada em VPS com NGINX e domínio dedicado. Projeto usado como laboratório de frontend, deploy e infraestrutura.',
+      en: 'Vue web application with its own dashboard, hosted on a VPS with NGINX and a dedicated domain. Used as a lab for frontend, deployment and infrastructure practice.',
+    },
+    highlights: [
+      { pt: 'Dashboard construído em Vue', en: 'Dashboard built with Vue' },
+      {
+        pt: 'Publicado em VPS própria com NGINX e HTTPS',
+        en: 'Deployed on my own VPS with NGINX and HTTPS',
+      },
+    ],
+    tags: ['Vue', 'JavaScript', 'NGINX'],
     repoUrl: 'https://github.com/arthurlunkes/clipsi',
+    liveUrl: 'https://clipsi.arthurlunkes.com.br/dashboard',
     featured: true,
+    image: '/projects/clipsi.png',
   },
   {
     name: 'cantina-unimater',

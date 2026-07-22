@@ -1,4 +1,5 @@
 import React from 'react';
+import { Building2, CalendarDays, MapPin } from 'lucide-react';
 import Section from '../ui/Section';
 import SectionTitle from '../ui/SectionTitle';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -22,9 +23,15 @@ const Experience: React.FC = () => {
                 {job.current && <span className='timeline__badge'>{t(ui.currentBadge)}</span>}
               </div>
               <p className='timeline__company'>
-                {job.company} · <span>{job.location}</span>
+                <Building2 size={15} aria-hidden='true' />
+                {job.company}
+                <span className='timeline__sep'>·</span>
+                <MapPin size={15} aria-hidden='true' />
+                <span>{job.location}</span>
               </p>
-              <p className='timeline__period'>{t(job.period)}</p>
+              <p className='timeline__period'>
+                <CalendarDays size={15} aria-hidden='true' /> {t(job.period)}
+              </p>
               <ul className='timeline__bullets'>
                 {job.bullets.map((b, bi) => (
                   <li key={bi}>{t(b)}</li>

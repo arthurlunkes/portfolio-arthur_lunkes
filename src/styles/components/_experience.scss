@@ -71,9 +71,18 @@
   }
 
   &__company {
-    margin-top: 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.3rem;
     color: var(--text);
     font-weight: 500;
+
+    svg {
+      color: var(--text-faint);
+      flex: 0 0 auto;
+    }
 
     span {
       color: var(--text-muted);
@@ -81,11 +90,19 @@
     }
   }
 
+  &__sep {
+    color: var(--text-faint);
+    margin-inline: 0.15rem;
+  }
+
   &__period {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
     font-family: $font-mono;
     font-size: 0.85rem;
     color: var(--accent);
-    margin-top: 0.15rem;
+    margin-top: 0.25rem;
   }
 
   &__bullets {

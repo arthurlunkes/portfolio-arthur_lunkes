@@ -37,9 +37,29 @@ export const ui: Record<string, LocalizedText> = {
   },
   currentBadge: { pt: 'Atual', en: 'Current' },
 
-  // Projects card
+  // Projects card / modal
   viewCode: { pt: 'Código', en: 'Code' },
   viewLive: { pt: 'Ver online', en: 'Live' },
+  viewDetails: { pt: 'Ver detalhes', en: 'View details' },
+  projectStack: { pt: 'Stack utilizada', en: 'Stack used' },
+  projectHighlights: { pt: 'Destaques', en: 'Highlights' },
+  projectGallery: { pt: 'Galeria', en: 'Gallery' },
+  closeAria: { pt: 'Fechar', en: 'Close' },
+  prevImageAria: { pt: 'Imagem anterior', en: 'Previous image' },
+  nextImageAria: { pt: 'Próxima imagem', en: 'Next image' },
+
+  // Certificados
+  modeInPerson: { pt: 'Presencial', en: 'In person' },
+  modeRemote: { pt: 'Remoto', en: 'Remote' },
+
+  // Trailhead
+  trailheadTitle: { pt: 'Trailhead (Salesforce)', en: 'Trailhead (Salesforce)' },
+  trailheadRank: { pt: 'Rank', en: 'Rank' },
+  trailheadBadges: { pt: 'Emblemas', en: 'Badges' },
+  trailheadPoints: { pt: 'Pontos', en: 'Points' },
+  trailheadTrails: { pt: 'Trilhas', en: 'Trails' },
+  trailheadSuperbadges: { pt: 'Superbadges', en: 'Superbadges' },
+  trailheadCta: { pt: 'Ver perfil no Trailhead', en: 'View Trailhead profile' },
 
   // Contact
   contactTitle: { pt: 'Vamos conversar', en: "Let's talk" },
