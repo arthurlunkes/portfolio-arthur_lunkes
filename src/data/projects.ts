@@ -12,6 +12,15 @@ import { Project } from '../interfaces/content';
  */
 export const projects: Project[] = [
   {
+    name: 'learning-NGINX',
+    description: {
+      pt: 'Estudos de NGINX com Docker: load balancing e reverse proxy.',
+      en: 'NGINX studies with Docker: load balancing and reverse proxy.',
+    },
+    tags: ['NGINX', 'Docker'],
+    repoUrl: 'https://github.com/arthurlunkes/learning-NGINX',
+  },
+  {
     name: 'my_finances',
     description: {
       pt: 'App de gestão de finanças pessoais feito em Flutter/Dart.',
@@ -54,14 +63,22 @@ export const projects: Project[] = [
     image: '/projects/decisionportfolio.png',
   },
   {
-    name: 'dark-patterned-eye',
+    name: 'MyAutomationEmbedded',
     description: {
-      pt: 'Extensão de navegador para identificar dark patterns, com React e Plasmo.',
-      en: 'Browser extension to identify dark patterns, built with React and Plasmo.',
+      pt: 'Código para ESP32 (DOIT ESP32 DEVKIT V1) — automação embarcada.',
+      en: 'Code for ESP32 (DOIT ESP32 DEVKIT V1) — embedded automation.',
     },
-    tags: ['TypeScript', 'React', 'Plasmo'],
-    repoUrl: 'https://github.com/arthurlunkes/dark-patterned-eye',
-    featured: true,
+    tags: ['C++', 'ESP32', 'IoT'],
+    repoUrl: 'https://github.com/arthurlunkes/MyAutomationEmbedded',
+  },
+  {
+    name: 'mobile-home-assist',
+    description: {
+      pt: 'Aplicativo mobile em Flutter/Dart.',
+      en: 'Mobile application built with Flutter/Dart.',
+    },
+    tags: ['Flutter', 'Dart'],
+    repoUrl: 'https://github.com/arthurlunkes/mobile-home-assist',
   },
   {
     name: 'clipsi',
@@ -88,6 +105,16 @@ export const projects: Project[] = [
     image: '/projects/clipsi.png',
   },
   {
+    name: 'dark-patterned-eye',
+    description: {
+      pt: 'Extensão de navegador para identificar dark patterns, com React e Plasmo.',
+      en: 'Browser extension to identify dark patterns, built with React and Plasmo.',
+    },
+    tags: ['TypeScript', 'React', 'Plasmo'],
+    repoUrl: 'https://github.com/arthurlunkes/dark-patterned-eye',
+    featured: true,
+  },
+  {
     name: 'cantina-unimater',
     description: {
       pt: 'Software acadêmico para gestão de cantina universitária (projeto em equipe).',
@@ -96,34 +123,6 @@ export const projects: Project[] = [
     tags: ['TypeScript'],
     repoUrl: 'https://github.com/arthurlunkes/cantina-unimater',
     featured: true,
-  },
-  {
-    name: 'Project_Contas_A_Receber',
-    description: {
-      pt: 'Aplicação fullstack de contas a receber com Spring Boot, React e PostgreSQL.',
-      en: 'Fullstack accounts receivable app with Spring Boot, React and PostgreSQL.',
-    },
-    tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL'],
-    repoUrl: 'https://github.com/arthurlunkes/Project_Contas_A_Receber',
-    featured: true,
-  },
-  {
-    name: 'MyAutomationEmbedded',
-    description: {
-      pt: 'Código para ESP32 (DOIT ESP32 DEVKIT V1) — automação embarcada.',
-      en: 'Code for ESP32 (DOIT ESP32 DEVKIT V1) — embedded automation.',
-    },
-    tags: ['C++', 'ESP32', 'IoT'],
-    repoUrl: 'https://github.com/arthurlunkes/MyAutomationEmbedded',
-  },
-  {
-    name: 'mobile-home-assist',
-    description: {
-      pt: 'Aplicativo mobile em Flutter/Dart.',
-      en: 'Mobile application built with Flutter/Dart.',
-    },
-    tags: ['Flutter', 'Dart'],
-    repoUrl: 'https://github.com/arthurlunkes/mobile-home-assist',
   },
   {
     name: 'ecommerce-backend',
@@ -144,15 +143,6 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/arthurlunkes/ecommerce-cms',
   },
   {
-    name: 'learning-NGINX',
-    description: {
-      pt: 'Estudos de NGINX com Docker: load balancing e reverse proxy.',
-      en: 'NGINX studies with Docker: load balancing and reverse proxy.',
-    },
-    tags: ['NGINX', 'Docker'],
-    repoUrl: 'https://github.com/arthurlunkes/learning-NGINX',
-  },
-  {
     name: 'Desafios_Selenium',
     description: {
       pt: 'Desafios de mineração de dados usando o framework Selenium.',
@@ -160,5 +150,15 @@ export const projects: Project[] = [
     },
     tags: ['Python', 'Selenium'],
     repoUrl: 'https://github.com/arthurlunkes/Desafios_Selenium',
+  },
+  {
+    name: 'Project_Contas_A_Receber',
+    description: {
+      pt: 'Aplicação fullstack de contas a receber com Spring Boot, React e PostgreSQL.',
+      en: 'Fullstack accounts receivable app with Spring Boot, React and PostgreSQL.',
+    },
+    tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL'],
+    repoUrl: 'https://github.com/arthurlunkes/Project_Contas_A_Receber',
+    featured: true,
   },
 ];
